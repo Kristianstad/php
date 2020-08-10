@@ -34,8 +34,9 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_LINUX_USER="php" \
+    VAR_FINAL_COMMAND="php-fpm7" \
     VAR_SOCKET_FILE="/run/php7-fpm/socket" \
-    VAR_wwwconf_user='$VAR_LINUX_USER' \
+    VAR_LOG_FILE="/var/log/php7/error.log" \
     VAR_wwwconf_listen='$VAR_SOCKET_FILE' \
     VAR_wwwconf_pm="dynamic" \
     VAR_wwwconf_pm__max_children="5" \
