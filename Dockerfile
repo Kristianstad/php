@@ -37,9 +37,9 @@ ENV VAR_LINUX_USER="php" \
     VAR_wwwconf_user='$VAR_LINUX_USER' \
     VAR_wwwconf_listen='$VAR_SOCKET_FILE' \
     VAR_wwwconf_pm="dynamic" \
-    VAR_wwwconf_pm_max__children="5" \
-    VAR_wwwconf_pm_min__spare__servers="1" \
-    VAR_wwwconf_pm_max__spare__servers="4"
+    VAR_wwwconf_pm__max_children="5" \
+    VAR_wwwconf_pm__min_spare_servers="1" \
+    VAR_wwwconf_pm__max_spare_servers="4"
      
 # Generic template (don't edit) <BEGIN>
 USER starter
