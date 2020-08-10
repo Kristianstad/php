@@ -10,5 +10,6 @@ then
    if [ ! -s "/etc/php7/php-fpm.d/www.conf" ]
    then
       createWwwConf
+      setPhpIni
    fi
 fi
