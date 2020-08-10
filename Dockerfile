@@ -35,7 +35,7 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_LINUX_USER="php" \
-    VAR_FINAL_COMMAND="php-fpm7" \
+    VAR_FINAL_COMMAND="php-fpm7 --daemonize --force-stderr" \
     VAR_SOCKET_FILE="/run/php7-fpm/socket" \
     VAR_LOG_FILE="/var/log/php7/error.log" \
     VAR_wwwconf_listen='$VAR_SOCKET_FILE' \
