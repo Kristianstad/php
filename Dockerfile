@@ -7,6 +7,7 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application,base"
+ARG MAKEDIRS="/etc/php7/conf.d"
 ARG RUNDEPS="php7-fpm"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 # ARGs (can be passed to Build/Final) </END>
