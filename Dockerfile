@@ -32,7 +32,7 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_LINUX_USER="php" \
+ENV VAR_LINUX_USER="php"
      
 # Generic template (don't edit) <BEGIN>
 USER starter
