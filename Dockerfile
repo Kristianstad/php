@@ -10,6 +10,7 @@ ARG IMAGETYPE="application,base"
 ARG MAKEDIRS="/etc/php7/conf.d"
 ARG RUNDEPS="php7-fpm"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
+ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
