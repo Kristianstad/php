@@ -40,7 +40,11 @@ ARG RUNDEPS="php7 \
         php7-zip \
         php7-pgsql \
         php7-pecl-imagick \
-        libpng"
+        libpng \
+        libpng-static \
+        libpng-utils \
+        libjpeg-turbo \
+        imagemagick"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
