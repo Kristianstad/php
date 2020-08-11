@@ -14,8 +14,8 @@ Secure and Minimal php-fpm Docker-image. Only fastcgi, no web server. Share unix
 * VAR_wwwconf_pm__max_spare_servers="3"
 
 ### Format of runtime configuration variables
-* VAR_wwwconf&lt;id&gt;_&lt;param name&gt;: Parameter in www.conf.
-* VAR_phpini&lt;id&gt;_&lt;param name&gt;: Parameter in /etc/php7/conf.d/50-setting.ini (overrides defaults set in php.ini).
+* VAR_wwwconf_&lt;param name&gt;: Parameter in www.conf.
+* VAR_phpini_&lt;param name&gt;: Parameter in /etc/php7/conf.d/50-setting.ini (overrides defaults set in php.ini).
 * Dot (.) is representated as double underscore (\_\_) in variable names.
 
 ## Capabilities
@@ -25,6 +25,6 @@ Can drop all but SETPCAP, SETGID and SETUID.
 ### To use with huggla/sam-lighttpd2
 * Run huggla/sam-php and huggla/sam-lighttpd2 on the same host.
 * Mount a directory from the host and make sure VAR_SOCKET_FILE in sam-php and VAR_FASTCGI_SOCKET_FILE in sam-lighttpd2 points to the same file inside this directory.
-* Set VAR_OPERATION_MODE="fcgi" and VAR_setup1_module_load="[ 'mod_fastcgi' ]" in sam-lighttpd2.
+* Set VAR_OPERATION_MODE="fcgi" and VAR_setup1_module_load="\[ 'mod_fastcgi' \]" in sam-lighttpd2.
 * Make sure VAR_WWW_DIR in sam-lighttpd2 is set to the path of the php-files in sam-php.
 * (Optional) Adjust VAR_setup3_workers, VAR_setup4_io__timeout and VAR_setup5_stat_cache__ttl in sam-lighttpd2.
