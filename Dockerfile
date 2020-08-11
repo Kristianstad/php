@@ -8,7 +8,27 @@
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application,base"
 ARG MAKEDIRS="/etc/php7/conf.d /etc/php7/php-fpm.d"
-ARG RUNDEPS="php7-fpm php7-pgsql"
+ARG RUNDEPS="php7-fpm php7-pgsql php7-bcmath \
+        php7-dom \
+        php7-ctype \
+        php7-curl \
+        php7-fileinfo \
+        php7-gd \
+        php7-iconv \
+        php7-intl \
+        php7-json \
+        php7-mbstring \
+        php7-mcrypt \
+        php7-opcache \
+        php7-openssl \
+        php7-phar \
+        php7-posix \
+        php7-simplexml \
+        php7-session \
+        php7-tokenizer \
+        php7-xml \
+        php7-xmlreader \
+        php7-xmlwriter"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
