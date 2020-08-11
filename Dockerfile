@@ -42,7 +42,7 @@ ENV VAR_LINUX_USER="php" \
     VAR_wwwconf_pm="dynamic" \
     VAR_wwwconf_pm__max_children="5" \
     VAR_wwwconf_pm__min_spare_servers="1" \
-    VAR_wwwconf_pm__max_spare_servers="4"
+    VAR_wwwconf_pm__max_spare_servers="3"
      
 # Generic template (don't edit) <BEGIN>
 USER starter
