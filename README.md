@@ -14,7 +14,7 @@ Secure and Minimal php-fpm Docker-image. Only fastcgi, no web server. Share unix
 * VAR_wwwconf_pm__max_spare_servers="3"
 
 ### Format of runtime configuration variables
-* VAR_wwwconf_&lt;param name&gt;: Parameter in www.conf.
+* VAR_wwwconf_&lt;param name&gt;: Parameter in www\.conf.
 * VAR_phpini_&lt;param name&gt;: Parameter in /etc/php7/conf.d/50-setting.ini (overrides defaults set in php.ini).
 * Dot (.) is representated as double underscore (\_\_) in variable names.
 
