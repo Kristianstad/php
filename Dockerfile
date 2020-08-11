@@ -29,6 +29,7 @@ ARG RUNDEPS="php7-fpm php7-pgsql php7-bcmath \
         php7-xml \
         php7-xmlreader \
         php7-pecl-gmagick \
+        php7-pecl-imagick \
         php7-xmlwriter"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
