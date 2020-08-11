@@ -18,9 +18,8 @@ Can drop all but SETPCAP, SETGID and SETUID.
 
 ## Tips
 ### To use with huggla/sam-lighttpd2
-* Run huggla/sam-qgisserver and huggla/sam-lighttpd2 on the same host.
+* Run huggla/sam-php and huggla/sam-lighttpd2 on the same host.
 * Mount a directory from the host and make sure VAR_SOCKET_FILE in sam-php and VAR_FASTCGI_SOCKET_FILE in sam-lighttpd2 points to the same file inside this directory.
 * Set VAR_OPERATION_MODE="fcgi" and VAR_setup1_module_load="[ 'mod_fastcgi' ]" in sam-lighttpd2.
+* Make sure VAR_WWW_DIR in sam-lighttpd2 is set to the path of the php-files in sam-php.
 * (Optional) Adjust VAR_setup3_workers, VAR_setup4_io__timeout and VAR_setup5_stat_cache__ttl in sam-lighttpd2.
-* Put Qgis project files in VAR_PROJECT_STORAGE_DIR.
-* Try to load http://<hostaddress>/?map=myproject.qgs&service=WMS&request=GetCapabilities
