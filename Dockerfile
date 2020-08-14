@@ -47,7 +47,7 @@ ARG RUNDEPS="php7 \
         imagemagick \
         curl \
         php7-pecl-apcu \
-        libressl"
+        openssl"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
