@@ -48,7 +48,7 @@ ARG RUNDEPS="php7 \
         curl \
         php7-pecl-apcu \
         php7-ldap \
-        openssl"
+        composer"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
