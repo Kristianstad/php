@@ -15,4 +15,8 @@ then
    then
       setPhpIni
    fi
+   if [ ! -s "/etc/ldap/ldap.conf" ]
+   then
+      createLdapConf
+   fi
 fi
