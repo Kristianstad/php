@@ -7,7 +7,7 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application,base"
-ARG MAKEDIRS="/etc/php7/conf.d /etc/php7/php-fpm.d /etc/ldap"
+ARG MAKEDIRS="/etc/php7/conf.d /etc/php7/php-fpm.d"
 ARG RUNDEPS="php7 \
         php7-bcmath \
         php7-dom \
