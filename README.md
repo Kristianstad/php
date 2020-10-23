@@ -17,6 +17,7 @@ Secure and Minimal php-fpm Docker-image. Only fastcgi, no web server. Share unix
 * VAR_wwwconf_&lt;param name&gt;: Parameter in <span>ww</span>w.conf.
 * VAR_phpini_&lt;param name&gt;: Parameter in /etc/php7/conf.d/50-setting.ini (overrides defaults set in php.ini).
 * Dot (.) is representated as double underscore (\_\_) in variable names.
+* VAR_ldapconf_&lt;param name&gt;: Parameter in /etc/ldap/ldap.conf.
 
 ## Capabilities
 Can drop all but SETPCAP, SETGID and SETUID.
