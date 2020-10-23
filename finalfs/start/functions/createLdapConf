@@ -1,0 +1,5 @@
+createLdapConf(){
+   local file="/etc/ldap/ldap.conf"
+   local wwwconf_dblUScore="."
+   configFromVarGroup ldapconf >> "$file"
+}
