@@ -32,7 +32,7 @@ ARG RUNDEPS="\
 #        php7-phar \
 #        php7-posix \
 #        php7-simplexml \
-#        php7-session \
+        php7-session \
 #        php7-soap \
 #        php7-tokenizer \
 #        php7-xml \
