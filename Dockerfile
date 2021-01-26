@@ -10,18 +10,18 @@ ARG IMAGETYPE="application,base"
 ARG MAKEDIRS="/etc/php7/conf.d /etc/php7/php-fpm.d"
 ARG RUNDEPS="\
 #        php7 \
-        php7-bcmath \
-        php7-dom \
-        php7-ctype \
+#        php7-bcmath \
+#        php7-dom \
+#        php7-ctype \
         php7-curl \
-        php7-fileinfo \
+#        php7-fileinfo \
         php7-fpm \
-        php7-gd \
+#        php7-gd \
 #        php7-iconv \
 #        php7-intl \
         php7-json \
-        php7-mbstring \
-        php7-mcrypt \
+#        php7-mbstring \
+#        php7-mcrypt \
 #        php7-mysqlnd \
         php7-opcache \
 #        php7-openssl \
@@ -48,8 +48,8 @@ ARG RUNDEPS="\
 #        imagemagick \
 #        curl \
         php7-pecl-apcu \
-        php7-ldap \
-        composer"
+        php7-ldap"
+#        composer"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
 ARG REMOVEFILES="/etc/php7/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
