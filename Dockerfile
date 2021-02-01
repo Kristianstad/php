@@ -41,10 +41,10 @@ ARG RUNDEPS="\
 #        php7-zip \
         php7-pgsql \
         php7-pecl-imagick \
-#        libpng \
-#        libpng-static \
-#        libpng-utils \
-#        libjpeg-turbo \
+        libpng \
+        libpng-static \
+        libpng-utils \
+        libjpeg-turbo \
         imagemagick \
 #        curl \
         php7-pecl-apcu \
