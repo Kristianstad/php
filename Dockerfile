@@ -24,12 +24,12 @@ ARG RUNDEPS="\
         php7-mcrypt \
 #        php7-mysqlnd \
         php7-opcache \
-#        php7-openssl \
+        php7-openssl \
 #        php7-pdo \
 #        php7-pdo_mysql \
 #        php7-pdo_pgsql \
 #        php7-pdo_sqlite \
-#        php7-phar \
+        php7-phar \
         php7-posix \
 #        php7-simplexml \
         php7-session \
@@ -38,7 +38,7 @@ ARG RUNDEPS="\
 #        php7-xml \
 #        php7-xmlreader \
 #        php7-xmlwriter \
-#        php7-zip \
+        php7-zip \
         php7-pgsql \
         php7-pecl-imagick \
         libpng \
@@ -46,7 +46,7 @@ ARG RUNDEPS="\
         libpng-utils \
         libjpeg-turbo \
         imagemagick \
-#        curl \
+        curl \
         php7-pecl-apcu \
         php7-ldap"
 #        composer"
