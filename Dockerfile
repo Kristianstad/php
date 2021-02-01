@@ -14,9 +14,9 @@ ARG RUNDEPS="\
 #        php7-dom \
 #        php7-ctype \
         php7-curl \
-#        php7-fileinfo \
+        php7-fileinfo \
         php7-fpm \
-#        php7-gd \
+        php7-gd \
 #        php7-iconv \
         php7-intl \
         php7-json \
