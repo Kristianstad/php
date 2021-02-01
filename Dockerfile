@@ -24,7 +24,7 @@ ARG RUNDEPS="\
         php7-mcrypt \
 #        php7-mysqlnd \
         php7-opcache \
-        php7-openssl \
+#        php7-openssl \
 #        php7-pdo \
 #        php7-pdo_mysql \
 #        php7-pdo_pgsql \
