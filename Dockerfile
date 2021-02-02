@@ -11,7 +11,7 @@ ARG MAKEDIRS="/etc/php7/conf.d /etc/php7/php-fpm.d"
 ARG RUNDEPS="\
 #        php7 \
 #        php7-bcmath \
-#        php7-dom \
+        php7-dom \
 #        php7-ctype \
         php7-curl \
 #        php7-fileinfo \
