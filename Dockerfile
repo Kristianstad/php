@@ -31,7 +31,7 @@ ARG RUNDEPS="\
 #        php7-pdo_sqlite \
 #        php7-phar \
 #        php7-posix \
-#        php7-simplexml \
+        php7-simplexml \
         php7-session \
 #        php7-soap \
 #        php7-tokenizer \
