@@ -46,7 +46,7 @@ ARG RUNDEPS="\
 #        libpng-utils \
 #        libjpeg-turbo \
 #        imagemagick \
-        curl \
+#        curl \
         php7-pecl-apcu \
         php7-ldap"
 #        composer"
