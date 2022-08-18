@@ -21,7 +21,7 @@ ARG RUNDEPS="\
         php81-intl \
         php81-json \
         php81-mbstring \
-        php81-mcrypt \
+#        php81-mcrypt \
 #        php81-mysqlnd \
         php81-opcache \
         php81-openssl \
