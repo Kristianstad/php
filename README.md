@@ -1,4 +1,4 @@
-# ghcr.io/kristianstad/php
+# ghcr.io/kristianstad/php (https://github.com/Kristianstad/php/pkgs/container/php)
 Secure and Minimal php-fpm Docker image. Only fastcgi, no web server. Share unix socket (VAR_SOCKET_FILE) with a fcgi-capable web server container (f ex. ghcr.io/kristianstad/lighttpd2).
 
 ## Environment variables
