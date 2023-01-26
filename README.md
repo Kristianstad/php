@@ -1,7 +1,7 @@
 # php
 https://github.com/Kristianstad/php/pkgs/container/php
 
-Secure and Minimal php-fpm Docker image. Only fastcgi, no web server. Share unix socket (VAR_SOCKET_FILE) with a fcgi-capable web server container (f ex. ghcr.io/kristianstad/lighttpd2).
+Secure and Minimal php-fpm Docker image. Only fastcgi, no web server. Share unix socket (VAR_SOCKET_FILE) with a fcgi-capable web server container (f ex. https://github.com/Kristianstad/lighttpd2/pkgs/container/lighttpd2).
 
 ## Environment variables
 ### Runtime variables with default value
