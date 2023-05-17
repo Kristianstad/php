@@ -75,7 +75,9 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_LINUX_USER="php" \
+ARG PHP_VERSION
+ENV VAR_PHP_VERSION="$PHP_VERSION" \
+    VAR_LINUX_USER="php" \
     VAR_FINAL_COMMAND="php-fpm$PHP_VERSION --nodaemonize --force-stderr" \
     VAR_SOCKET_FILE="/run/php$PHP_VERSION-fpm/socket" \
     VAR_LOG_FILE="/var/log/php$PHP_VERSION/error.log" \
