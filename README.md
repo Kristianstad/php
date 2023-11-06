@@ -1,7 +1,7 @@
 # php
 https://github.com/Kristianstad/php/pkgs/container/php
 
-Secure and Minimal php-fpm Docker image. Only fastcgi, no web server. Share unix socket (VAR_SOCKET_FILE) with a fcgi-capable web server container (f ex. https://github.com/Kristianstad/lighttpd2/pkgs/container/lighttpd2).
+Secure and Minimal php-fpm Docker image. Based on https://github.com/Kristianstad/nginx/pkgs/container/nginx (check for webserver settings).
 
 ## Environment variables
 ### Runtime variables with default value
@@ -22,12 +22,4 @@ Secure and Minimal php-fpm Docker image. Only fastcgi, no web server. Share unix
 * VAR_ldapconf_&lt;param name&gt;: Parameter in /etc/ldap/ldap.conf.
 
 ## Capabilities
-Can drop all but SETPCAP, SETGID and SETUID.
-
-## Tips
-### To use with ghcr.io/kristianstad/lighttpd2
-* Run php and lighttpd2 on the same host.
-* Mount a directory from the host and make sure VAR_SOCKET_FILE in php and VAR_FASTCGI_SOCKET_FILE in lighttpd2 points to the same file inside this directory.
-* Set VAR_OPERATION_MODE="fcgi" and VAR_setup1_module_load="\[ 'mod_fastcgi' \]" in lighttpd2.
-* Make sure VAR_WWW_DIR in lighttpd2 is set to the path of the php-files in php.
-* (Optional) Adjust VAR_setup3_workers, VAR_setup4_io__timeout and VAR_setup5_stat_cache__ttl in lighttpd2.
+Can drop all but CHOWN, SETPCAP, SETGID and SETUID.
