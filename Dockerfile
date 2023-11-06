@@ -5,8 +5,10 @@
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.18}
 ARG PHP_VERSION="82"
+ARG NGINX_VERSION="1.24.0"
+ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
 ARG IMAGETYPE="application,base"
-ARG MAKEDIRS="/etc/php$PHP_VERSION/conf.d /etc/php$PHP_VERSION/php-fpm.d"
+ARG MAKEDIRS="/etc/php$PHP_VERSION/conf.d /etc/php$PHP_VERSION/php-fpm.d /var/log/php$PHP_VERSION"
 ARG RUNDEPS="\
 #        php$PHP_VERSION \
 #        php$PHP_VERSION-bcmath \
@@ -78,14 +80,16 @@ COPY --from=build /finalfs /
 ARG PHP_VERSION
 ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_LINUX_USER="php" \
-    VAR_FINAL_COMMAND="php-fpm$PHP_VERSION --nodaemonize --force-stderr" \
+    VAR_FINAL_COMMAND="php-fpm$PHP_VERSION --force-stderr && nginx -g 'daemon off; user \$VAR_LINUX_USER; error_log stderr \$VAR_LOG_LEVEL; worker_processes \$VAR_WORKER_PROCESSES; worker_rlimit_nofile \$VAR_WORKER_RLIMIT_NOFILE;'" \
     VAR_SOCKET_FILE="/run/php$PHP_VERSION-fpm/socket" \
     VAR_LOG_FILE="/var/log/php$PHP_VERSION/error.log" \
     VAR_wwwconf_listen='$VAR_SOCKET_FILE' \
     VAR_wwwconf_pm="dynamic" \
     VAR_wwwconf_pm__max_children="5" \
     VAR_wwwconf_pm__min_spare_servers="1" \
-    VAR_wwwconf_pm__max_spare_servers="3"
+    VAR_wwwconf_pm__max_spare_servers="3" \
+    VAR_server15_index="index.html manage.php index.php" \
+    VAR_serversub02_location="~ \\.php\$ { fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; }" \
      
 # Generic template (don't edit) <BEGIN>
 USER starter
