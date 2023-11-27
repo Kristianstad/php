@@ -89,9 +89,9 @@ ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_wwwconf_pm__min_spare_servers="1" \
     VAR_wwwconf_pm__max_spare_servers="3" \
     VAR_server15_index="index.html manage.php index.php" \
-    VAR_server16_proxy_busy_buffers_size="512k" \
-    VAR_server17_proxy_buffers="4 512k" \
-    VAR_server18_proxy_buffer_size="256k" \
+    VAR_server16_fastcgi_buffers="16 32k" \
+    VAR_server17_fastcgi_buffer_size="64k" \
+    VAR_server18_fastcgi_busy_buffers_size="64k" \
     VAR_serversub02_location="~ \\.php\$ { fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; }"
      
 # Generic template (don't edit) <BEGIN>
