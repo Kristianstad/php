@@ -89,10 +89,7 @@ ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_wwwconf_pm__min_spare_servers="1" \
     VAR_wwwconf_pm__max_spare_servers="3" \
     VAR_server15_index="index.html manage.php index.php" \
-    VAR_server16_fastcgi_buffers="16 32k" \
-    VAR_server17_fastcgi_buffer_size="64k" \
-    VAR_server18_fastcgi_busy_buffers_size="64k" \
-    VAR_serversub02_location="~ \\.php\$ { fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; }"
+    VAR_serversub02_location="~ \\.php\$ { fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_buffers 16 32k; fastcgi_buffer_size 64k; fastcgi_busy_buffers_size 64k; }"
      
 # Generic template (don't edit) <BEGIN>
 USER starter
