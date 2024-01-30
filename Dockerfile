@@ -3,9 +3,9 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.18}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.19}
 ARG PHP_VERSION="82"
-ARG NGINX_VERSION="1.24.0"
+ARG NGINX_VERSION="1.24.0-r14"
 ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
 ARG IMAGETYPE="application,base"
 ARG MAKEDIRS="/etc/php$PHP_VERSION/conf.d /etc/php$PHP_VERSION/php-fpm.d /var/log/php$PHP_VERSION"
