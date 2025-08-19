@@ -14,8 +14,8 @@ Secure and Minimal php-fpm Docker image. Based on https://github.com/Kristiansta
 * VAR_wwwconf_pm__max_children="5"
 * VAR_wwwconf_pm__min_spare_servers="1"
 * VAR_wwwconf_pm__max_spare_servers="3"
-* VAR_server15_index="index.html manage.php index.php" (config for Nginx)
-* VAR_serversub02_location=`"~ \\.php\$ { fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; }"` (config for Nginx)
+* VAR_server16_index="index.html manage.php index.php" (config for Nginx)
+* VAR_serversub02_location=`"~ \\.php\$ { fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_buffers 32 32k; fastcgi_buffer_size 64k; fastcgi_busy_buffers_size 64k; }"` (config for Nginx)
 
 ### Format of runtime configuration variables
 * VAR_wwwconf_&lt;param name&gt;: Parameter in <span>ww</span>w.conf.
