@@ -5,7 +5,7 @@
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
 ARG PHP_VERSION="82"
-ARG NGINX_VERSION="1.28.0"
+ARG NGINX_VERSION="1.28.0-r3"
 ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
 ARG IMAGETYPE="application,base"
 ARG MAKEDIRS="/etc/php$PHP_VERSION/conf.d /etc/php$PHP_VERSION/php-fpm.d /var/log/php$PHP_VERSION"
@@ -49,6 +49,7 @@ ARG RUNDEPS="\
 #        imagemagick \
 #        curl \
         php$PHP_VERSION-pecl-apcu \
+        php$PHP_VERSION-pecl-brotli \
         php$PHP_VERSION-ldap"
 #        composer"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm$PHP_VERSION"
@@ -89,11 +90,6 @@ ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_wwwconf_pm__min_spare_servers="1" \
     VAR_wwwconf_pm__max_spare_servers="3" \
     VAR_server16_index="index.html manage.php index.php" \
-# Ta bort nedan efter nästa uppdatering av kristianstad/nginx
-    VAR_server17_brotli="on" \
-    VAR_server18_brotli_static="on" \
-    VAR_server19_gzip_static="on" \
-#
     VAR_serversub02_location="~ \\.php\$ { fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_buffers 32 32k; fastcgi_buffer_size 16k; fastcgi_busy_buffers_size 64k; }"
      
 # Generic template (don't edit) <BEGIN>
