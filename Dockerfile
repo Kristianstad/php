@@ -48,11 +48,13 @@ ARG RUNDEPS="\
 #        libjpeg-turbo \
 #        imagemagick \
 #        curl \
+        php82 \
         php$PHP_VERSION-pecl-apcu \
         php$PHP_VERSION-pecl-brotli \
         php$PHP_VERSION-ldap"
 #        composer"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm$PHP_VERSION"
+ARG EXECUTABLES="/usr/bin/php82"
 ARG REMOVEFILES="/etc/php$PHP_VERSION/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
 
@@ -89,8 +91,6 @@ ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_wwwconf_pm__max_children="5" \
     VAR_wwwconf_pm__min_spare_servers="1" \
     VAR_wwwconf_pm__max_spare_servers="3" \
-    VAR_wwwconf_request_terminate_timeout="0" \
-    VAR_wwwconf_pm__max_requests="0" \
     VAR_server16_index="index.html manage.php index.php" \
     VAR_serversub02_location="~ \\.php\$ { fastcgi_param SCRIPT_FILENAME \\\$document_root\\\$fastcgi_script_name; fastcgi_param SCRIPT_NAME \\\$fastcgi_script_name; include fastcgi.conf; fastcgi_pass unix:\$VAR_SOCKET_FILE; fastcgi_buffers 32 32k; fastcgi_buffer_size 16k; fastcgi_busy_buffers_size 64k; }"
      
