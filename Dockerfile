@@ -6,8 +6,24 @@ ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
 ARG PHP_VERSION="82"
 ARG NGINX_VERSION="1.28.0-r3"
-ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
 ARG IMAGETYPE="application,base"
+ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
+ARG BUILDDEPS="composer"
+ARG BUILDCMDS=\
+"   mkdir composerdir "\
+"&& cd composerdir "\
+"&& composer require --ignore-platform-reqs adldap2/adldap2 "\
+'&& mkdir -p "$DESTDIR/www/composer" '\
+'&& mv ./vendor "$DESTDIR/www/composer/adldap2" '\
+'&& rm -rf * '\
+'&& composer require --ignore-platform-reqs matthiasmullie/minify '\
+'&& mv ./vendor "$DESTDIR/www/composer/minify" '\
+'&& rm -rf * '\
+'&& composer require --ignore-platform-reqs thenetworg/oauth2-azure '\
+'&& mv ./vendor "$DESTDIR/www/composer/oauth2-azure" '\
+'&& rm -rf * '\
+'&& composer require --ignore-platform-reqs league/oauth2-client '\
+'&& mv ./vendor "$DESTDIR/www/composer/oauth2-client"'
 ARG MAKEDIRS="/etc/php$PHP_VERSION/conf.d /etc/php$PHP_VERSION/php-fpm.d /var/log/php$PHP_VERSION"
 ARG RUNDEPS="\
 #        php$PHP_VERSION \
