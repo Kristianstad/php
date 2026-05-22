@@ -3,9 +3,9 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
-ARG PHP_VERSION="82"
-ARG NGINX_VERSION="1.28.0-r3"
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.23}
+ARG PHP_VERSION=${PHP_VERSION:-85}
+ARG NGINX_VERSION=${NGINX_VERSION:-1.28.3}
 ARG IMAGETYPE="application,base"
 ARG BASEIMAGE="ghcr.io/kristianstad/nginx:$NGINX_VERSION"
 ARG BUILDDEPS="composer"
@@ -73,28 +73,32 @@ ARG REMOVEFILES="/etc/php$PHP_VERSION/php-fpm.d/www.conf"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
-FROM ${CONTENTIMAGE1:-scratch} as content1
-FROM ${CONTENTIMAGE2:-scratch} as content2
-FROM ${CONTENTIMAGE3:-scratch} as content3
-FROM ${CONTENTIMAGE4:-scratch} as content4
-FROM ${CONTENTIMAGE5:-scratch} as content5
-FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as base
-FROM ${INITIMAGE:-scratch} as init
+FROM ${CONTENTIMAGE1:-scratch} AS content1
+FROM ${CONTENTIMAGE2:-scratch} AS content2
+FROM ${CONTENTIMAGE3:-scratch} AS content3
+FROM ${CONTENTIMAGE4:-scratch} AS content4
+FROM ${CONTENTIMAGE5:-scratch} AS content5
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} AS base
+FROM ${INITIMAGE:-scratch} AS init
 # Generic template (don't edit) </END>
 
 # =========================================================================
 # Build
 # =========================================================================
 # Generic template (don't edit) <BEGIN>
-FROM ${BUILDIMAGE:-$SaM_REPO:build-$ALPINE_VERSION} as build
-FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as final
+FROM ${BUILDIMAGE:-$SaM_REPO:build-$ALPINE_VERSION} AS build
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} AS final
 COPY --from=build /finalfs /
 # Generic template (don't edit) </END>
 
 # =========================================================================
 # Final
 # =========================================================================
+# Re-declare ARGs
+ARG ALPINE_VERSION
 ARG PHP_VERSION
+ARG NGINX_VERSION
+
 ENV VAR_PHP_VERSION="$PHP_VERSION" \
     VAR_LINUX_USER="php" \
     VAR_FINAL_COMMAND="php-fpm$PHP_VERSION --force-stderr && nginx -g 'daemon off; user \$VAR_LINUX_USER; error_log stderr \$VAR_LOG_LEVEL; worker_processes \$VAR_WORKER_PROCESSES; worker_rlimit_nofile \$VAR_WORKER_RLIMIT_NOFILE;'" \
@@ -112,3 +116,7 @@ ENV VAR_PHP_VERSION="$PHP_VERSION" \
 USER starter
 ONBUILD USER root
 # Generic template (don't edit) </END>
+
+LABEL org.opencontainers.image.version="${PHP_VERSION}" \
+      org.opencontainers.image.title="php" \
+      org.opencontainers.image.description="PHP ${PHP_VERSION} based on secure_and_minimal ${ALPINE_VERSION} + nginx ${NGINX_VERSION}"
